@@ -1,63 +1,120 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Absen PMR</title>
+    <title>Absensi Kehadiran PMR</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>ABSEN ANGGOTA PMR</h1>
-        <p>Pendidikan Palang Merah Remaja</p>
+        <h1>ABSENSI KEHADIRAN PMR</h1>
+        <p>Dashboard Absensi & Analisa Market</p>
     </header>
 
     <main class="container">
+
+        <!-- Anggota -->
         <section class="card">
-            <h2>Formulir Absen</h2>
-
-            <form id="absenForm">
-                <div class="form-group">
-                    <label>Nama Anggota</label>
-                    <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Kelas</label>
-                    <input type="text" id="kelas" placeholder="Contoh: 8A / 9B" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Nomor Anggota</label>
-                    <input type="text" id="nomor" placeholder="ID anggota PMR" required>
-                </div>
-
-                <button type="submit" class="btn">Check In</button>
-            </form>
+            <h2>Daftar Anggota PMR</h2>
+            <ul class="anggota">
+                <li>1. Agustin Wulandari</li>
+                <li>2. Novi Nikmatul Nikmah</li>
+                <li>3. Noveliana Anjani Nur Aini</li>
+                <li>4. Siti Muzariah</li>
+                <li>5. Denok Umi Citra Dewi</li>
+                <li>6. Vitri Novitasari</li>
+                <li>7. Adellia Deviana</li>
+            </ul>
         </section>
 
-        <section class="card table-card">
-            <h2>Daftar Kehadiran</h2>
+        <!-- Absensi -->
+        <section class="card">
+            <h2>Absensi Kehadiran</h2>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nama</th>
-                        <th>Kelas</th>
-                        <th>ID</th>
-                        <th>Waktu</th>
-                    </tr>
-                </thead>
-                <tbody id="listAbsen"></tbody>
-            </table>
+            <select id="anggota" class="select-box">
+                <option value="">-- Pilih Anggota --</option>
+                <option>Agustin Wulandari</option>
+                <option>Novi Nikmatul Nikmah</option>
+                <option>Noveliana Anjani Nur Aini</option>
+                <option>Siti Muzariah</option>
+                <option>Denok Umi Citra Dewi</option>
+                <option>Vitri Novitasari</option>
+                <option>Adellia Deviana</option>
+            </select>
+
+            <button id="absen" class="btn">Catat Kehadiran</button>
+
+            <div id="hasilAbsen" class="output-box">
+                <p>Belum ada data absensi.</p>
+            </div>
         </section>
+
+        <!-- Metode Market -->
+        <section class="card">
+            <h2>Pilih Metode Trading</h2>
+
+            <select id="metode" class="select-box">
+                <option value="">-- Pilih Metode --</option>
+                <option>Scalping</option>
+                <option>Day Trading</option>
+                <option>Swing Trading</option>
+                <option>Position Trading</option>
+            </select>
+        </section>
+
+        <!-- Teknikal -->
+        <section class="card">
+            <h2>Analisa Teknikal</h2>
+
+            <select id="teknikal" class="select-box">
+                <option value="">-- Pilih Teknikal --</option>
+                <option>Support & Resistance</option>
+                <option>Trendline</option>
+                <option>Fibonacci</option>
+                <option>EMA / MA</option>
+                <option>RSI / Stochastic</option>
+                <option>Volume Analysis</option>
+            </select>
+        </section>
+
+        <!-- Fundamental -->
+        <section class="card">
+            <h2>Analisa Fundamental</h2>
+
+            <select id="fundamental" class="select-box">
+                <option value="">-- Pilih Fundamental --</option>
+                <option>Berita Ekonomi</option>
+                <option>Suku Bunga</option>
+                <option>Inflasi</option>
+                <option>GDP</option>
+                <option>Sentimen Market</option>
+            </select>
+        </section>
+
+        <!-- Input Analisa Market -->
+        <section class="card">
+            <h2>Analisa Market Hari Ini</h2>
+            <textarea id="analisa" placeholder="Tulis analisa market hari ini..."></textarea>
+            <button id="simpan" class="btn">Simpan Analisa</button>
+        </section>
+
+        <!-- Output Analisa -->
+        <section class="card">
+            <h2>Hasil Analisa</h2>
+            <div id="hasil" class="output-box">
+                <p>Belum ada analisa disimpan.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>© 2025 PMR • Sistem Absensi Sederhana</p>
+        <p>© 2025 Absensi PMR • Dashboard Kehadiran & Analisa</p>
     </footer>
 
     <script src="app.js"></script>
 </body>
 </html>
+
