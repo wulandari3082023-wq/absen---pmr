@@ -1,45 +1,45 @@
-// Load data ketika halaman dibuka
-document.addEventListener("DOMContentLoaded", tampilkanData);
-
-document.getElementById("absenForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    let nama = document.getElementById("nama").value;
+document.getElementById("absen").addEventListener("click", () => {
+    let nama = document.getElementById("anggota").value;
+    let tanggal = document.getElementById("tanggal").value;
     let kelas = document.getElementById("kelas").value;
-    let nomor = document.getElementById("nomor").value;
-    let waktu = new Date().toLocaleString("id-ID");
 
-    let data = { nama, kelas, nomor, waktu };
+    if (!nama || !tanggal || !kelas) {
+        alert("Harap isi semua data absensi!");
+        return;
+    }
 
-    // Simpan ke localStorage
-    let daftar = JSON.parse(localStorage.getItem("absenPMR")) || [];
-    daftar.push(data);
-    localStorage.setItem("absenPMR", JSON.stringify(daftar));
+    let waktuInput = new Date().toLocaleString("id-ID");
 
-    // Tambah ke tabel
-    tambahKeTabel(data);
+    // Data kehadiran baru
+    let dataBaru = { nama, kelas, tanggal, waktuInput };
 
-    // Reset form
-    document.getElementById("absenForm").reset();
+    // Ambil data lama
+    let dataLama = JSON.parse(localStorage.getItem("absensiPMR")) || [];
+    dataLama.push(dataBaru);
+
+    // Simpan
+    localStorage.setItem("absensiPMR", JSON.stringify(dataLama));
+
+    tampilkanData();
 });
 
-// Tambahkan secara visual ke tabel
-function tambahKeTabel(item) {
-    let tabel = document.getElementById("listAbsen");
-    let row = document.createElement("tr");
-
-    row.innerHTML = `
-        <td>${item.nama}</td>
-        <td>${item.kelas}</td>
-        <td>${item.nomor}</td>
-        <td>${item.waktu}</td>
-    `;
-
-    tabel.appendChild(row);
-}
-
-// Tampilkan semua data yang sudah tersimpan
 function tampilkanData() {
-    let daftar = JSON.parse(localStorage.getItem("absenPMR")) || [];
-    daftar.forEach(item => tambahKeTabel(item));
+    let data = JSON.parse(localStorage.getItem("absensiPMR")) || [];
+    let tabel = document.getElementById("tabelKehadiran");
+
+    tabel.innerHTML = ""; // reset
+
+    data.forEach(item => {
+        let tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${item.nama}</td>
+            <td>${item.kelas}</td>
+            <td>${item.tanggal}</td>
+            <td>${item.waktuInput}</td>
+        `;
+        tabel.appendChild(tr);
+    });
 }
+
+// tampilkan saat halaman pertama dibuka
+tampilkanData();
