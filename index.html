@@ -10,12 +10,12 @@
 
     <header>
         <h1>ABSENSI KEHADIRAN PMR</h1>
-        <p>Dashboard Absensi & Analisa Market</p>
+        <p>Sistem Presensi Anggota PMR</p>
     </header>
 
     <main class="container">
 
-        <!-- Anggota -->
+        <!-- Daftar Anggota -->
         <section class="card">
             <h2>Daftar Anggota PMR</h2>
             <ul class="anggota">
@@ -29,11 +29,18 @@
             </ul>
         </section>
 
-        <!-- Absensi -->
+        <!-- Form Absensi -->
         <section class="card">
-            <h2>Absensi Kehadiran</h2>
+            <h2>Form Absensi Kehadiran</h2>
 
-            <select id="anggota" class="select-box">
+            <label for="tanggal">Tanggal Kehadiran</label>
+            <input type="date" id="tanggal" class="input-box">
+
+            <label for="kelas">Kelas</label>
+            <input type="text" id="kelas" class="input-box" placeholder="Contoh: 8A, 9B, 10C">
+
+            <label for="anggota">Pilih Anggota</label>
+            <select id="anggota" class="input-box">
                 <option value="">-- Pilih Anggota --</option>
                 <option>Agustin Wulandari</option>
                 <option>Novi Nikmatul Nikmah</option>
@@ -45,76 +52,31 @@
             </select>
 
             <button id="absen" class="btn">Catat Kehadiran</button>
-
-            <div id="hasilAbsen" class="output-box">
-                <p>Belum ada data absensi.</p>
-            </div>
         </section>
 
-        <!-- Metode Market -->
+        <!-- Tabel Hasil Absensi -->
         <section class="card">
-            <h2>Pilih Metode Trading</h2>
+            <h2>Data Kehadiran</h2>
 
-            <select id="metode" class="select-box">
-                <option value="">-- Pilih Metode --</option>
-                <option>Scalping</option>
-                <option>Day Trading</option>
-                <option>Swing Trading</option>
-                <option>Position Trading</option>
-            </select>
-        </section>
-
-        <!-- Teknikal -->
-        <section class="card">
-            <h2>Analisa Teknikal</h2>
-
-            <select id="teknikal" class="select-box">
-                <option value="">-- Pilih Teknikal --</option>
-                <option>Support & Resistance</option>
-                <option>Trendline</option>
-                <option>Fibonacci</option>
-                <option>EMA / MA</option>
-                <option>RSI / Stochastic</option>
-                <option>Volume Analysis</option>
-            </select>
-        </section>
-
-        <!-- Fundamental -->
-        <section class="card">
-            <h2>Analisa Fundamental</h2>
-
-            <select id="fundamental" class="select-box">
-                <option value="">-- Pilih Fundamental --</option>
-                <option>Berita Ekonomi</option>
-                <option>Suku Bunga</option>
-                <option>Inflasi</option>
-                <option>GDP</option>
-                <option>Sentimen Market</option>
-            </select>
-        </section>
-
-        <!-- Input Analisa Market -->
-        <section class="card">
-            <h2>Analisa Market Hari Ini</h2>
-            <textarea id="analisa" placeholder="Tulis analisa market hari ini..."></textarea>
-            <button id="simpan" class="btn">Simpan Analisa</button>
-        </section>
-
-        <!-- Output Analisa -->
-        <section class="card">
-            <h2>Hasil Analisa</h2>
-            <div id="hasil" class="output-box">
-                <p>Belum ada analisa disimpan.</p>
-            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Anggota</th>
+                        <th>Kelas</th>
+                        <th>Tanggal</th>
+                        <th>Waktu Input</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelKehadiran"></tbody>
+            </table>
         </section>
 
     </main>
 
     <footer>
-        <p>© 2025 Absensi PMR • Dashboard Kehadiran & Analisa</p>
+        <p>© 2025 PMR • Sistem Absensi Modern</p>
     </footer>
 
     <script src="app.js"></script>
 </body>
 </html>
-
